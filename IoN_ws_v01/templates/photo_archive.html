@@ -1,39 +1,36 @@
 <!DOCTYPE html>
-<head>
-    <title>Index of Noise</title>
-</head>
+<html>
+    <head>
+        <title>Index of Noise</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel= "stylesheet" type= "text/css" href="{{ url_for('static', filename='style.css') }}">
+    </head>
 
-<body>
-    <div class="frame">
-    {% extends "base.html" %}
-
+    <body>
         {% block content %}
-        <ul class="col">
-            <li class="row">
-                <ul class="text">
-                    <li>
-                        Index of Noise is an ongoing artistic research project emerging from <a href="https://moritzhundbiss.de/index-of-noise/" target="_blank">an eponymous work</a> by <a href="https://moritzhundbiss.de" target="_blank">Moritz Hundbiß</a> (Basel, Switzerland) and <a href="https://robinwoern.com" target="_blank">Robin Woern</a> (Berlin, Germany), and <a href="https://infoklasse.de/superponiertemuster/" target="_blank">Superposed Patterns</a> by <a href="https://niklasthran.com" target="_blank">Niklas Thran</a> (Berlin, Germany).<br>In times of extensive retouching, merciless denoising of digital renderings and smooth-looking machine learning model-generated images, this index wants to give noise a stage to communicate and highlight its importance in the vast field of visual arts.
-                        <br><br>
-                        Images © 2019–2024. All rights reserved.
-                        <br><br>
-                        <a href="https://www.instagram.com/indexofnoise" target="_blank">Instagram</a>
-                    </li>
-                </ul>
-            </li>
-        </ul>
+        <header>
+            <ul class="text">
+                <li>
+                    <b>Index of Noise</b> is an ongoing artistic research project emerging from <a href="https://moritzhundbiss.de/index-of-noise/" target="_blank">an eponymous work</a> by <a href="https://moritzhundbiss.de" target="_blank">Moritz Hundbiß</a> (Basel, Switzerland) and <a href="https://robinwoern.com" target="_blank">Robin Woern</a> (Berlin, Germany), and <a href="https://infoklasse.de/superponiertemuster/" target="_blank">Superposed Patterns</a> by <a href="https://niklasthran.com" target="_blank">Niklas Thran</a> (Berlin, Germany).<br>
+                    In times of extensive retouching, merciless denoising of digital renderings and smooth-looking machine learning model-generated images, this index gives noise a stage to communicate and highlight its importance in the vast field of visual arts.
+                </li>
+                <li><a href="https://www.instagram.com/indexofnoise" target="_blank">Instagram</a></li>
+            </ul>
+        </header>
 
-
-
-        <ul class="col">
-            <li class="row">
-                <ul class="photogallery">
-                    {% for photo in photo_list %}
-                    <img src="{{ photo }}">
-                    {% endfor %}
-                </ul>
-            </li>
-        </ul>
-        {% endblock %}
-        
-    </div>
-</body>
+        <section>
+            <ul class="photogallery">
+                {% for photo in photo_list %}
+                <li><img src="{{ photo }}"></li>
+                {% endfor %}
+            </ul>
+        </section>
+        <footer>
+            <ul class="text">
+                <li>Images © 2019–2024. All rights reserved.</li>
+            </ul>
+        </footer>
+        {% endblock %} 
+    </body>
+</html>

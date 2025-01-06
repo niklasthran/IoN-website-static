@@ -1,0 +1,107 @@
+:root {
+    --font-col: #000000;
+    --translate-col: #7F7F7F;
+    --bg-col: #F2F3F4;
+    --v-space: 1.3em;
+    --f-size: 15px;
+}
+
+html {
+    background-color: var(--bg-col);
+}
+
+@import url("https://use.typekit.net/lkg6vkl.css");
+
+body {
+    overflow-y: scroll;
+    width: calc(900px - var(--v-space) * 2);
+    margin: var(--v-space) auto var(--v-space) auto;
+    font-family: "neue-haas-unica", sans-serif;
+    line-height: var(--v-space);
+    font-size: var(--f-size);
+    color: var(--font-col);
+}
+
+a:link,
+a:active,
+a:focus,
+a:hover,
+a:visited {
+    color: var(--font-col);
+    overflow-wrap: break-word;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.15em;
+}
+
+.text {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 50%;
+}
+
+.text li:not(:last-of-type) {
+    margin: 0 0 var(--v-space) 0;
+}
+
+section {
+    padding: 0;
+    margin: var(--v-space) 0 var(--v-space) 0;
+}
+
+.photogallery {
+    column-count: 4;
+    list-style: none;
+    padding: 0;
+    margin: calc(var(--v-space) * -1) 0 0 0;
+    column-gap: var(--v-space);
+}
+
+.photogallery li {
+    break-inside: avoid;
+    padding: var(--v-space) 0 0 0;
+}
+
+.photogallery img {
+    width: 100%;
+    height: 100%;
+    vertical-align: text-top;
+    object-fit: contain;
+    object-position: top left;
+}
+
+@media (max-width: 900px) {
+    body {
+        width: calc(100% - var(--v-space) * 2);
+    }
+
+    .text {
+        width: 75%;
+    }
+
+    .photogallery {
+        column-count: 2;
+    }
+}
+
+@media (max-width: 600px) {
+    .text {
+        width: 100%;
+    }
+
+    .photogallery {
+        column-count: 1;
+    }
+}
+
+@media only screen and (max-device-width: 480px) {
+    html {
+        -webkit-text-size-adjust: 100%;
+    }
+}
+
+@media (max-width: 270px) {
+    .frame {
+        display: none;
+    }
+}

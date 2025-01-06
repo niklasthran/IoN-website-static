@@ -2,14 +2,24 @@
     --font-col: #000000;
     --translate-col: #7F7F7F;
     --bg-col: #F2F3F4;
+    --v-space: 1.3em;
+    --f-size: 15px;
 }
 
 html {
     background-color: var(--bg-col);
 }
 
+@import url("https://use.typekit.net/lkg6vkl.css");
+
 body {
     overflow-y: scroll;
+    width: calc(900px - var(--v-space) * 2);
+    margin: var(--v-space) auto var(--v-space) auto;
+    font-family: "neue-haas-unica", sans-serif;
+    line-height: var(--v-space);
+    font-size: var(--f-size);
+    color: var(--font-col);
 }
 
 a:link,
@@ -19,198 +29,74 @@ a:hover,
 a:visited {
     color: var(--font-col);
     overflow-wrap: break-word;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.15em;
 }
 
-.frame {
-    margin: 4em auto 4em auto;
-    width: 80em;
-    font-family: Helvetica;
-    font-size: 14px;
-    color: var(--font-col);
-}
-
-.row {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.col {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    column-count: 2;
-    column-gap: 2em;
-    row-gap: 0.5em;
-    text-align: left;
-    padding: 0;
-    margin: 0 0 1em 0;
-}
-
-.header ul {
+.text {
     list-style: none;
-    padding: 0;
-    margin: 0 0 1em 0;
-}
-
-.line {
-    border-bottom: 1px solid var(--font-col);
-    margin: 0 0 1em 0;
-}
-
-.name {
-    flex: 3;
-    order: 1;
-    width: 0;
-}
-
-.name ul {
     padding: 0;
     margin: 0;
+    width: 50%;
 }
 
-.name li {
-    width: calc(100% - 1em);
-    white-space: nowrap;
-    overflow-x: hidden;
-    text-overflow: ellipsis;
-    vertical-align: text-top;
-    list-style: none;
+.text li:not(:last-of-type) {
+    margin: 0 0 var(--v-space) 0;
 }
 
-.date {
-    flex: 1;
-    order: 2;
-}
-
-.thumbgallery {
-    flex: 5;
-    order: 3;
-}
-
-.thumbgallery a {
-    text-decoration: none;
-}
-
-.thumbgallery img,
-.thumbgallery video {
-    width: calc((100% / 4) - 0.5em);
-    height: 3.5em;
+section {
     padding: 0;
-    margin: 0 0 0 0.5em;
-    float: left;
-    vertical-align: text-top;
-    object-fit: cover;
-}
-
-.text,
-.gallery {
-    column-count: 2;
-    list-style: none;
-    padding: 0;
+    margin: var(--v-space) 0 var(--v-space) 0;
 }
 
 .photogallery {
-    column-count: 3;
+    column-count: 4;
     list-style: none;
     padding: 0;
+    margin: calc(var(--v-space) * -1) 0 0 0;
+    column-gap: var(--v-space);
 }
 
-.text li {
-    break-inside: avoid-column;
+.photogallery li {
+    break-inside: avoid;
+    padding: var(--v-space) 0 0 0;
 }
 
-.gallery img,
-.gallery video,
 .photogallery img {
     width: 100%;
-    display: block;
-    padding: 0 0 0.5em 0;
-}
-
-.list {
-    list-style: none;
-    width: calc(50% - 1em);
-    padding: 0;
-}
-
-.read-more-button {
-    text-decoration: underline;
-    cursor: pointer;
-}
-
-.read-more-target,
-.read-more-trigger_opened,
-.read-more-state:checked ~ .read-more-trigger_closed {
-    display: none;
-}
-.read-more-state:checked ~ .read-more-wrap .read-more-target,
-.read-more-state:checked ~ .read-more-trigger_opened {
-    display: block;
-}
-
-.translate,
-.translate a {
-    color: var(--translate-col) !important;
-    font-style: italic;
-}
-
-@media (max-width: 1250px) {
-    .frame {
-        width: calc(100vw - 10em);
-    }
+    height: 100%;
+    vertical-align: text-top;
+    object-fit: contain;
+    object-position: top left;
 }
 
 @media (max-width: 900px) {
+    body {
+        width: calc(100% - var(--v-space) * 2);
+    }
+
+    .text {
+        width: 75%;
+    }
+
     .photogallery {
         column-count: 2;
     }
 }
 
-@media (max-width: 700px) {
-    .col {
-        column-count: 1;
-        row-gap: 1em;
+@media (max-width: 600px) {
+    .text {
+        width: 100%;
     }
 
-    .row .date {
-        text-align: right;
-    }
-
-    .name li {
-        white-space: normal;
-    }
-
-    .thumbgallery {
-        display: none;
-    }
-
-    .text,
-    .gallery,
     .photogallery {
         column-count: 1;
-    }
-
-    .list {
-        width: 100%;
     }
 }
 
 @media only screen and (max-device-width: 480px) {
     html {
         -webkit-text-size-adjust: 100%;
-    }
-
-    .frame {
-        margin: 1em auto 3em auto;
-        width: calc(100vw - 2em);
-    }
-
-    .thumbgallery img,
-    .thumbgallery video {
-        height: 2.5em;
     }
 }
 
