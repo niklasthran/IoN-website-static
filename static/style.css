@@ -2,7 +2,7 @@
     --font-col: #000000;
     --translate-col: #7F7F7F;
     --bg-col: #F2F3F4;
-    --v-space: 1.3em;
+    --v-space: 1.33em;
     --f-size: 15px;
 }
 
@@ -22,6 +22,10 @@ body {
     color: var(--font-col);
 }
 
+sup {
+    line-height: 0;
+}
+
 a:link,
 a:active,
 a:focus,
@@ -33,14 +37,46 @@ a:visited {
     text-underline-offset: 0.15em;
 }
 
+header,
+.announce {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: var(--v-space);
+}
+
+.announce {
+    margin: 0 0 var(--v-space) 0;
+    padding: 0 0 var(--v-space) 0;
+    border-bottom: 1px solid var(--font-col);
+}
+
 .text {
+    grid-column: 1;
     list-style: none;
     padding: 0;
     margin: 0;
-    width: 50%;
 }
 
 .text li:not(:last-of-type) {
+    margin: 0 0 var(--v-space) 0;
+}
+
+.image {
+    grid-column: 2;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.image video {
+    width: 100%;
+    height: 100%;
+    vertical-align: text-top;
+    object-fit: contain;
+    object-position: top left;
+}
+
+.image li:not(:last-of-type) {
     margin: 0 0 var(--v-space) 0;
 }
 
@@ -49,20 +85,22 @@ section {
     margin: var(--v-space) 0 var(--v-space) 0;
 }
 
-.photogallery {
-    column-count: 4;
+.gallery {
+    column-count: 3;
     list-style: none;
     padding: 0;
     margin: calc(var(--v-space) * -1) 0 0 0;
     column-gap: var(--v-space);
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
 }
 
-.photogallery li {
+.gallery li {
     break-inside: avoid;
     padding: var(--v-space) 0 0 0;
 }
 
-.photogallery img {
+.gallery img {
     width: 100%;
     height: 100%;
     vertical-align: text-top;
@@ -74,22 +112,21 @@ section {
     body {
         width: calc(100% - var(--v-space) * 2);
     }
-
-    .text {
-        width: 75%;
-    }
-
-    .photogallery {
-        column-count: 2;
-    }
 }
 
 @media (max-width: 600px) {
-    .text {
-        width: 100%;
+    .text,
+    .image {
+        grid-column: span 2;
+        list-style: none;
     }
 
-    .photogallery {
+    .image {
+        grid-row: 1;
+        margin: 0 0 var(--v-space) 0;
+    }
+
+    .gallery {
         column-count: 1;
     }
 }
