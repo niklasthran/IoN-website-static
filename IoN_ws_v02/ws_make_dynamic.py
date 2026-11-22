@@ -5,10 +5,12 @@ data_location = "./static"
 
 # List all photos in photo_archive directory
 photo_list = []
-for photo in os.listdir(f"{data_location}/photo_archive"):
-    if ".DS_Store" not in photo:
-        photo_list.append(f"{data_location}/photo_archive/{photo}")
-photo_list.sort(reverse=True)
+photo_format = ["jpg", "jpeg", "gif", "png"]
+for photo in os.listdir(f"{data_location}/data"):
+    if photo.lower().endswith(tuple(photo_format)):
+        #print(photo)
+        photo_list.append(f"{data_location}/data/{photo}")
+photo_list.sort(reverse=False)
 
 app = Flask(__name__)
 

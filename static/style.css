@@ -1,8 +1,12 @@
+/*@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap');*/
+
+@import url("https://use.typekit.net/lkg6vkl.css");
+
 :root {
     --font-col: #000000;
     --translate-col: #7F7F7F;
     --bg-col: #F2F3F4;
-    --v-space: 1.33em;
+    --v-space: 1.25em;
     --f-size: 15px;
 }
 
@@ -10,20 +14,26 @@ html {
     background-color: var(--bg-col);
 }
 
-@import url("https://use.typekit.net/lkg6vkl.css");
-
 body {
     overflow-y: scroll;
     width: calc(900px - var(--v-space) * 2);
     margin: var(--v-space) auto var(--v-space) auto;
+    
     font-family: "neue-haas-unica", sans-serif;
-    line-height: var(--v-space);
+    /*font-family: "IBM Plex Mono", monospace;*/
+    font-weight: 400;
+
+    line-height: calc(var(--v-space) * 1.15);
     font-size: var(--f-size);
     color: var(--font-col);
 }
 
 sup {
     line-height: 0;
+}
+
+b {
+    font-weight: 700;
 }
 
 a:link,

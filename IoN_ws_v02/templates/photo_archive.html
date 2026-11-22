@@ -34,7 +34,7 @@
                 <li>
                     <a href="https://www.instagram.com/p/Dfogbb0TmPj/" target="_blank">
                         <video autoplay loop muted playsinline>
-                            <source src="../static/photo_archive/IoD_announcement_image.mp4" type="video/mp4">
+                            <source src="../static/data/IoD_announcement_image.mp4" type="video/mp4">
                         </video>
                     </a>
                 </li>
@@ -52,17 +52,14 @@
 
         <section>
             <ul class="gallery">
-                {% set photo_list = photo_list | sort %}
                 {% for photo in photo_list %}
-                {% if '.mp4' not in photo %}
                 <li><img src="{{ photo }}"></li>
-                {% endif %}
                 {% endfor %}
             </ul>
         </section>
         <footer>
             <ul class="text">
-                <li>© 2019–2026. All rights reserved.</li>
+                <li>Images © 2019–2026. All rights reserved.</li>
             </ul>
         </footer>
         {% endblock %} 
